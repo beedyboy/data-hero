@@ -69,10 +69,10 @@ dataHero.validator('pp', 'min', 2)
 
 ## Available rules
 
-- [min] `to take integer value`
-- [max] `to take integer value`
-- [isEmpty] `to take boolean value`
-- [email] `to take boolean value`
-- [isNumeric] `to take boolean value`
+- min `to take integer value`
+- max] `to take integer value`
+- isEmpty `to take boolean value`
+- email `to take boolean value`
+- isNumeric `to take boolean value`
 
 Any rule applied above will return `false` is validation passes

@@ -1,5 +1,5 @@
 {
-  "name": "@beedyboy/data-hero",
+  "name": "data-hero",
   "version": "1.2.9",
   "description": "Checks the validity of a data",
   "main": "build/index.js",
