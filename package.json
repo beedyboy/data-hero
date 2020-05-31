@@ -1,5 +1,5 @@
 {
-  "name": "data-hero",
+  "name": "@beedyboy/data-hero",
   "version": "1.2.9",
   "description": "Checks the validity of a data",
   "main": "build/index.js",
@@ -15,11 +15,8 @@
     "build"
   ],
   "repository": {
-    "url": "https://github.com/beedyboy/data-hero",
+    "url": "https://github.com/beedyboy/data-hero.git",
     "type": "git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   },
   "jest": {
     "preset": "ts-jest",
