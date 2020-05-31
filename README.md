@@ -26,27 +26,10 @@ MIT - See LICENSE.md
 ```
 $ npm install -g data-hero
 ```
-
-Then
-
-```js
-var Validator = require( 'data-hero.js' );
-```
-
  
 
-## Validate a string
-
-```js
-var is = require( 'validator.js' ).Assert;
-var validator = require( 'validator.js' ).validator();
-
-validator.validate( 'foo', is.ofLength( { min: 4 } ) );
-validator.validate( 'foo', [ is.ofLength( { min: 4 } ), is.email() ] );
-```
-
-will return `true` if validation passes, a `Violation`'s array otherwise.
-
+ 
+ 
 ## Validate an object
 
 ```ts
@@ -76,7 +59,5 @@ const data = {
 ```
 
 will return `true` if validation passes, `{ email: [ Violation ], firstname: [ Violation ] }` in this case.
-
-## Validation groups
-
+ 
  
