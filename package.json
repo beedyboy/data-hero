@@ -1,6 +1,6 @@
 {
   "name": "data-hero",
-  "version": "1.0.0",
+  "version": "1.2.9",
   "description": "Checks the validity of a data",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -18,6 +18,7 @@
     "url": "https://github.com/beedyboy/data-hero",
     "type": "git"
   },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node"
@@ -49,7 +50,6 @@
     "rollup-plugin-peer-deps-external": "^2.2.2",
     "rollup-plugin-typescript2": "^0.27.1",
     "standard": "^14.3.4",
-    "standard-prettier": "^1.0.1",
     "ts-jest": "^26.1.0",
     "ts-node": "^8.10.2"
   }

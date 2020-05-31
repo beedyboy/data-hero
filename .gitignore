@@ -3,3 +3,4 @@ node_modules/
 AppData/
 dist/
 coverage/ 
+build/
