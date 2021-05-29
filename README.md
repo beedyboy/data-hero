@@ -60,10 +60,45 @@ import dataHero from 'data-hero';
 
 - Syntax
   dataHero.validator(field, rule, rule value)
-- Example
+- Example 1
 
 ```
 dataHero.validator('pp', 'min', 2)
+
+```
+- Example 2
+
+```
+const schema = {
+    email: {
+      min: 14,
+      email: true,
+      message: 'Email is required'
+    }
+  }
+  const data = {
+    email: 'bolade@gmail.com'
+  }
+  dataHero.validate(schema, data);
+
+```
+- Example 3
+
+```
+  const schema = {
+           
+          password: {
+            compare: {
+              to: 'cpaswword'
+            }, 
+            message: 'password does not match'
+          }
+        }
+        const data = { 
+          password: 'Bolade',
+          cpaswword: 'Bolades', 
+        }
+dataHero.validate(schema, data)
 
 ```
 
@@ -74,5 +109,9 @@ dataHero.validator('pp', 'min', 2)
 - isEmpty `to take boolean value`
 - email `to take boolean value`
 - isNumeric `to take boolean value`
+- isBoolean `takes a boolean value`
+- isTrue `takes a boolean value`
+- isFalse `takes a boolean value`
+- compare `use to compare two fields e.g. password`
 
 **Note: Any rule applied above will return `false` is validation passes !**
