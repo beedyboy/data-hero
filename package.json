@@ -1,6 +1,6 @@
 {
   "name": "data-hero",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "Checks the validity of a data",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -10,8 +10,8 @@
     "lint": "standard",
     "format": "prettier-standard --format",
     "dev": "node src/index.js",
-    "test": "npx jest --clearCache && jest",
-    "test2": "jest --coverage"
+    "test2": "npx jest --clearCache && jest",
+    "test": "jest --coverage"
   },
   "files": [
     "build"
