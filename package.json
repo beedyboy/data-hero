@@ -7,10 +7,10 @@
   "jsnext:main": "build/index.es.js",
   "scripts": {
     "build": "rollup -c",
-    "lint": "standard",
+    "lint": "standard --fix",
     "format": "prettier-standard --format",
     "dev": "node src/index.js",
-    "test2": "npx jest --clearCache && jest",
+     "prepublishOnly": "npm run build",
     "test": "jest --coverage"
   },
   "files": [
@@ -20,7 +20,10 @@
     "url": "https://github.com/beedyboy/data-hero.git",
     "type": "git"
   },
-  
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
   "standard": {
     "ignore": [
       "node_modules/",
