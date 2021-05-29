@@ -1,6 +1,6 @@
 {
   "name": "data-hero",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "Checks the validity of a data",
   "main": "build/index.js",
   "module": "build/index.es.js",
