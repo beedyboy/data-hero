@@ -1,3 +1,5 @@
+"use strict";
+exports.__esModule = true;
 var DataHero = /** @class */ (function () {
     function DataHero() {
         this.payload = {};
@@ -13,16 +15,22 @@ var DataHero = /** @class */ (function () {
         }
     };
     DataHero.prototype.spread = function (key, shuffle, data) {
-        var message = '';
+        var message = "";
         var error = false;
-        var value = '';
+        var value = "";
         if (key in data) {
             value = data[key];
         }
         // if (typeof value != undefined && value) {
         for (var property in shuffle) {
-            if (property == 'message') {
+            if (property == "message") {
                 message = shuffle[property];
+            }
+            else if (property == "compare") {
+                var feedback = this.validator(value, property, shuffle[property], data);
+                if (error == false && feedback == true) {
+                    error = true;
+                }
             }
             else {
                 var feedback = this.validator(value, property, shuffle[property]);
@@ -31,19 +39,18 @@ var DataHero = /** @class */ (function () {
                 }
             }
         }
-        // }
         this.payload[key] = {
             error: error,
             message: message
         };
         return this.payload;
     };
-    DataHero.prototype.validator = function (field, rule, rule_value) {
+    DataHero.prototype.validator = function (field, rule, rule_value, data) {
         if (field != undefined && rule_value != undefined) {
             switch (rule) {
-                case 'min':
+                case "min":
                     if (field == undefined) {
-                        console.log('min pron');
+                        return true;
                     }
                     else if (field == undefined && rule_value >= 0) {
                         return true;
@@ -52,14 +59,15 @@ var DataHero = /** @class */ (function () {
                         return rule_value > field.length;
                     }
                     break;
-                case 'max':
+                case "max":
                     if (field == undefined && rule_value >= 0) {
                         return true;
                     }
                     else {
                         return field.length > rule_value;
                     }
-                case 'email':
+                    break;
+                case "email":
                     if (field != undefined && rule_value) {
                         var regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
                         return !regexp.test(field);
@@ -67,16 +75,43 @@ var DataHero = /** @class */ (function () {
                     else {
                         return true;
                     }
-                case 'isEmpty':
+                    break;
+                case "isEmpty":
                     if (rule_value === true) {
                         return false;
                     }
-                    return field === undefined || field === '' || field === null;
-                case 'isNumeric':
+                    return field === undefined || field === "" || field === null;
+                    break;
+                case "isNumeric":
                     if (rule_value === true) {
                         var correct = !(field instanceof Array) && field - parseFloat(field) + 1 >= 0;
                         return !correct;
                     }
+                    break;
+                case "isBoolean":
+                    if (rule_value === true) {
+                        return typeof field === "boolean" ? false : true;
+                    }
+                    return typeof field === "boolean" ? true : false;
+                    break;
+                case "isTrue":
+                    if (rule_value === true) {
+                        return field === true ? false : true;
+                    }
+                    return field === true ? true : false;
+                    break;
+                case "isFalse":
+                    if (rule_value === true) {
+                        return field === false ? false : true;
+                    }
+                    return field === false ? true : false;
+                    break;
+                case "compare":
+                    if (field === data[rule_value.to]) {
+                        return false;
+                    }
+                    return true;
+                    break;
             }
         }
         return true;
@@ -84,25 +119,4 @@ var DataHero = /** @class */ (function () {
     return DataHero;
 }());
 var dataHero = new DataHero();
-// const schema = {
-//     email: {
-//         min: 14,
-//         email: true,
-//         message: 'Email is required'
-//       },
-//       password: {
-//             min: 8,
-//             isEmpty: true,
-//         message: 'password is required'
-//       }
-// };
-// const data = {
-//     email: 'bolade@gmail.com',
-//     password: ""
-// }
-// // console.log( dataHero.validate(schema, data));
-// const p = '2.3';
-//  console.log(dataHero.validator(p, 'isNumeric', true));
-
-export default dataHero;
-//# sourceMappingURL=index.es.js.map
+exports["default"] = dataHero;

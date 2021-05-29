@@ -4,7 +4,7 @@ Ground-breaking objects and strings validation in typescript for Node applicatio
 
 ## Version
 
-1.2.9
+1.6.1
 
 ## Motto
 
