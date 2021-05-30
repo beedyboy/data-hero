@@ -10,7 +10,8 @@
     "lint": "standard --fix",
     "format": "prettier-standard --format",
     "dev": "node src/index.js",
-     "prepublishOnly": "npm run build",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
     "test": "jest --coverage"
   },
   "files": [
@@ -19,6 +20,9 @@
   "repository": {
     "url": "https://github.com/beedyboy/data-hero.git",
     "type": "git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "jest": {
     "preset": "ts-jest",
